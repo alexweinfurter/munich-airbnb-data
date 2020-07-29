@@ -1,6 +1,0 @@
-{
-    "python.dataScience.jupyterServerURI": "local",
-    "python.pythonPath": "C:\\Users\\Alexander\\Anaconda3\\envs\\airbnb\\python.exe",
-    "python.autoComplete.addBrackets": true,
-    "http.proxySupport": "on"
-}
