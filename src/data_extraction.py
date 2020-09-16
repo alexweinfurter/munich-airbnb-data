@@ -11,6 +11,7 @@ PROJECT_FOLDER = Path(__file__).parent.parent
 
 
 def parse_urls(url, city):
+    """Gets all urls related to the city."""
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
     html_table = " ".join(["table table-hover table-striped", city])
@@ -22,11 +23,13 @@ def parse_urls(url, city):
     return urls
 
 def filter_urls(urls):
+    """Selects urls of relevant files."""
     patterns = ["listings.csv.gz","calendar.csv.gz","reviews.csv.gz", "neighbourhoods"]
     relevant = filter(lambda x: any([(p in x ) for p in patterns]), urls)
     return relevant
 
 def download_files(urls):
+    """Downloads all files."""
     for url in urls:
         match = re.search(r"\d{4}-\d{2}-\d{2}", url) # extract date year-month-day
         date = match.group()
